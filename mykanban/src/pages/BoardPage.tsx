@@ -1,7 +1,8 @@
-import { DragDropContext, DropResult } from "@hello-pangea/dnd";
+import { DragDropContext } from "@hello-pangea/dnd";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import type { Board, ColumnType, Task } from "../types/Board";
+import type { DropResult } from "@hello-pangea/dnd";
 import { useConfirmDialog } from "../hooks/useConfirmDialog";
 import { Column } from "../components/Column";
 
