@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://lorrayne-amorim.github.io/mykanban",
   "scripts": {
     "dev": "vite",
-    "homepage": "https://lorrayne-amorim.github.io/mykanban",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "predeploy": "npm run build",
