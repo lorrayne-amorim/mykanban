@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=./" />
+    <script>
+        // Redirecionamento manual para garantir que funcione com subrotas
+        var path = location.pathname.replace(/^\/[^\/]+/, "");
+        location.replace("/mykanban" + path + location.search + location.hash);
+    </script>
+    <title>Redirecionando...</title>
+</head>
+
+<body>
+    <p>Redirecionando para a aplicação...</p>
+</body>
+
+</html>
