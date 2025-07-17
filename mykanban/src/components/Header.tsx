@@ -2,11 +2,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import logo from '../assets/logowhite.png'
 import { BellIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
-import NotificationCard from './NotificationCard' // ajuste o caminho conforme onde estiver
-
-const navigation = [
-    { name: 'Dashboard', href: '/', current: true },
-]
+import NotificationCard from './NotificationCard'
+import { Link, useLocation } from 'react-router-dom'
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -14,6 +11,11 @@ function classNames(...classes: string[]) {
 
 export default function Header() {
     const [showNotifications, setShowNotifications] = useState(false)
+    const location = useLocation()
+
+    const navigation = [
+        { name: 'Dashboard', to: '/', current: location.pathname === '/' || location.pathname === '/mykanban/' }
+    ]
 
     return (
         <Disclosure as="nav" className="bg-gradient-to-r from-purple-800 to-purple-900 w-full shadow-md relative">
@@ -23,9 +25,9 @@ export default function Header() {
                         <img src={logo} alt="Logo" className="h-10 w-auto" />
                         <div className="hidden sm:flex space-x-4">
                             {navigation.map((item) => (
-                                <a
+                                <Link
                                     key={item.name}
-                                    href={item.href}
+                                    to={item.to}
                                     className={classNames(
                                         item.current
                                             ? 'text-white font-medium'
@@ -34,12 +36,11 @@ export default function Header() {
                                     )}
                                 >
                                     {item.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
 
-                    {/* Botão do sino + notificações */}
                     <div className="relative">
                         <button
                             type="button"
@@ -50,7 +51,6 @@ export default function Header() {
                             <BellIcon className="h-6 w-6" />
                         </button>
 
-                        {/* Dropdown de notificações */}
                         {showNotifications && (
                             <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg z-50 p-4">
                                 <NotificationCard
@@ -76,8 +76,8 @@ export default function Header() {
                     {navigation.map((item) => (
                         <DisclosureButton
                             key={item.name}
-                            as="a"
-                            href={item.href}
+                            as={Link}
+                            to={item.to}
                             className={classNames(
                                 item.current
                                     ? 'bg-purple-900 text-white'
@@ -91,5 +91,5 @@ export default function Header() {
                 </div>
             </DisclosurePanel>
         </Disclosure>
-    );
+    )
 }
