@@ -5,7 +5,7 @@ import PageLayout from "./layouts/PageLayout";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/mykanban">
       <PageLayout>
         <Routes>
           <Route path="/" element={<Home />} />
