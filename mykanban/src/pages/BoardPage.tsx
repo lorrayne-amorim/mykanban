@@ -152,7 +152,7 @@ export const BoardPage = () => {
             </h2>
 
             <DragDropContext onDragEnd={handleDragEnd}>
-                <div className="flex gap-6 overflow-x-auto pb-6">
+                <div className="flex flex-col items-center gap-6 pb-6 sm:flex-row sm:items-start sm:justify-center">
                     {(Object.keys(board.columns) as ColumnType[]).map((colId) => {
                         const col = board.columns[colId];
                         return (

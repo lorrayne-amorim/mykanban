@@ -35,7 +35,7 @@ export function Column({ columnId, columnName, tasks, onAddTask, onRemoveTask, o
                 <div
                     ref={provided.innerRef}
                     {...provided.droppableProps}
-                    className={`w-[18rem] rounded-xl p-4 shadow-md min-h-[200px] flex flex-col justify-between border ${columnColors[columnId]}`}
+                    className={`w-[18rem] sm:w-[18rem] rounded-xl p-4 shadow-md min-h-[200px] flex flex-col justify-between border ${columnColors[columnId]}`}
                 >
                     <div>
                         <h3 className="text-purple-700 font-bold mb-3">{columnName}</h3>
